@@ -65,15 +65,6 @@ internal class Task2
         DirectoryInfo mydir = new DirectoryInfo(Console.ReadLine());
         Console.WriteLine("Input file's name:");
         FileInfo goal = new FileInfo(Console.ReadLine());
-        if (mydir.Exists)
-        {
-            DirectoryInfo[] subdir = mydir.GetDirectories();
-            FileInfo[] files = mydir.GetFiles();
-            foreach (FileInfo file in files)
-            {
-                if (file.Name == goal.Name) Console.WriteLine($"found in {file.FullName}");
-            }
-            foreach (DirectoryInfo sub in subdir) { search(sub, goal); }
-        }
+        if (mydir.Exists) search(mydir, goal);
     }
 }
